@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
-import { Wrapper } from './components/Wrapper';
-import { Container } from './components/Container';
+import { Wrapper } from './containers/Wrapper';
+import { Container } from './containers/Container';
 
 import Home from './pages/Home';
 

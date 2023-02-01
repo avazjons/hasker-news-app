@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import api from "../api";
+import { getStoryIds } from "../services/hnApi";
 
-class HaskerNewsStore {
+class HNStore {
     constructor() {
         makeAutoObservable(this);
     }
@@ -12,9 +12,8 @@ class HaskerNewsStore {
     saveStoryIds = async () => {
         try {
             this.isLoading = true;
-            const result = await api.getStoriesIds();
+            const result = await getStoryIds();
             if (result === null) return alert("Server error");
-
             this.storyIds = result.slice(0, 5);
         } finally {
             this.isLoading = false;
@@ -22,4 +21,4 @@ class HaskerNewsStore {
     }
 }
 
-export const haskerNewsStore = new HaskerNewsStore();
+export const hnStore = new HNStore();

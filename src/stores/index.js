@@ -1,1 +1,1 @@
-export * from './HaskerNewsStore';
+export * from './HNStore';

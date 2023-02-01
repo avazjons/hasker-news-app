@@ -1,17 +1,18 @@
 import { observer } from 'mobx-react';
-import { haskerNewsStore } from '../stores';
+import { useEffect } from 'react';
+import { hnStore } from '../stores';
 
 const Home = () => {
-    const { isLoading, storyIds, saveStoryIds } = haskerNewsStore;
-    saveStoryIds();
+    const { storyIds, saveStoryIds } = hnStore;
 
-    //34593535
+    useEffect(() => {
+        saveStoryIds();
+    }, [saveStoryIds])
+
     return (
         <>
             {
-                storyIds.map((storyId) => {
-                    return <div key={storyId}>{storyId}</div>
-                })
+                storyIds.map((storyId) => <div key={storyId}>{storyId}</div>)
             }
         </>
     )
